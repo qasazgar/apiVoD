@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                     bru run . \
-                        --env Vod-stage \
+                        --env VOD-dev \
                         --reporter-junit reports/junit.xml \
                         --reporter-html reports/report.html
                 '''
