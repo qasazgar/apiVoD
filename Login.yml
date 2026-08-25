@@ -44,6 +44,84 @@ http:
       }
   auth: inherit
 
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        /* ============================================================
+           Bruno Test Script
+           Paste this in the "Tests" tab of the Bruno request (Login.bru / RequestLogin)
+           Bruno uses: test(), expect() (chai), res, and bru — NOT pm
+           ============================================================ */
+
+        test("Response has status code 200", function () {
+          expect(res.getStatus()).to.equal(200);
+        });
+
+        test("Response time is less than 2000ms", function () {
+          expect(res.getResponseTime()).to.be.below(2000);
+        });
+
+        const jsonData = res.getBody();
+
+        test("Response is a valid object", function () {
+          expect(jsonData).to.be.an("object");
+        });
+
+        test("user_id exists and is a non-empty string", function () {
+          expect(jsonData).to.have.property("user_id");
+          expect(jsonData.user_id).to.be.a("string").and.not.empty;
+        });
+
+        test("access token exists and is a non-empty string", function () {
+          expect(jsonData).to.have.property("access");
+          expect(jsonData.access).to.be.a("string").and.not.empty;
+        });
+
+        test("refresh token exists and is a non-empty string", function () {
+          expect(jsonData).to.have.property("refresh");
+          expect(jsonData.refresh).to.be.a("string").and.not.empty;
+        });
+
+        test("token_type is Bearer", function () {
+          expect(jsonData.token_type).to.equal("Bearer");
+        });
+
+        test("access token is a valid JWT format", function () {
+          // JWT must have 3 parts separated by dots: header.payload.signature
+          expect(jsonData.access.split(".").length).to.equal(3);
+        });
+
+        test("refresh token is a valid JWT format", function () {
+          expect(jsonData.refresh.split(".").length).to.equal(3);
+        });
+
+        test("user object exists and user.id matches top-level user_id", function () {
+          expect(jsonData).to.have.property("user");
+          expect(jsonData.user).to.have.property("id");
+          expect(jsonData.user.id).to.equal(jsonData.user_id);
+        });
+
+        test("user.phone_number exists", function () {
+          expect(jsonData.user).to.have.property("phone_number");
+          expect(jsonData.user.phone_number).to.be.a("string").and.not.empty;
+        });
+
+        test("user.is_active is true", function () {
+          expect(jsonData.user.is_active).to.equal(true);
+        });
+
+
+        /* ============================================================
+           Optional: save tokens as runtime variables for chained requests
+           (e.g. use {{access_token}} in the Authorization header of the next request)
+           Add this in the "Vars" > "Post Response" tab, or here in Tests
+           ============================================================ */
+
+        bru.setVar("access_token", jsonData.access);
+        bru.setVar("refresh_token", jsonData.refresh);
+        bru.setVar("user_id", jsonData.user_id);
+
 settings:
   encodeUrl: false
   timeout: 0
