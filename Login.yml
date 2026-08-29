@@ -66,12 +66,15 @@ runtime:
         // Runs after the response is received — res is available here.
         // ============================================================
 
+        const responseTime = res.getResponseTime();
+        console.log("Exact response time:", responseTime, "ms");
+
         test("Response has status code 200", function () {
           expect(res.getStatus()).to.equal(200);
         });
 
-        test("Response time is less than 2000ms", function () {
-          expect(res.getResponseTime()).to.be.below(2000);
+        test(`Response time is ${responseTime}ms (should be less than 2000ms)`, function () {
+          expect(responseTime).to.be.below(2000);
         });
 
         const jsonData = res.getBody();
@@ -122,10 +125,11 @@ runtime:
           expect(jsonData.user.is_active).to.equal(true);
         });
 
-        // Save tokens as runtime variables for chained requests
+        // Save tokens and response time as runtime variables
         bru.setVar("access_token", jsonData.access);
         bru.setVar("refresh_token", jsonData.refresh);
         bru.setVar("user_id", jsonData.user_id);
+        bru.setVar("last_response_time_ms", responseTime);
 
 settings:
   encodeUrl: false
