@@ -62,8 +62,6 @@ runtime:
       code: |-
         // ============================================================
         // script:post-response
-        // (Bruno → Script tab → Post Response)
-        // Runs after the response is received — res is available here.
         // ============================================================
 
         const responseTime = res.getResponseTime();
@@ -125,11 +123,16 @@ runtime:
           expect(jsonData.user.is_active).to.equal(true);
         });
 
-        // Save tokens and response time as runtime variables
-        bru.setVar("access_token", jsonData.access);
-        bru.setVar("refresh_token", jsonData.refresh);
-        bru.setVar("user_id", jsonData.user_id);
-        bru.setVar("last_response_time_ms", responseTime);
+        // ------------------------------------------------------------
+        // Save access token to the ENVIRONMENT (not just runtime var)
+        // This persists in the active environment config (dev/staging/etc.)
+        // and is visible under Environments in the sidebar.
+        // ------------------------------------------------------------
+        bru.setEnvVar("access_token", jsonData.access);
+        bru.setEnvVar("refresh_token", jsonData.refresh);
+        bru.setEnvVar("user_id", jsonData.user_id);
+
+        console.log("access_token saved to environment:", bru.getEnvVar("access_token"));
 
 settings:
   encodeUrl: false
