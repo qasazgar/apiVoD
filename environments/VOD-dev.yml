@@ -1,4 +1,4 @@
-name: Super App - dev
+name: VOD-dev
 variables:
   - name: phone_number
     value: "09120233186"
@@ -56,4 +56,13 @@ variables:
     description: ""
   - name: phone_number_motor
     value: "09127988405"
+    description: ""
+  - name: phone_number
+    value: "09304216502"
+    description: ""
+  - name: password
+    value: Maryam!990
+    description: ""
+  - name: URL-dotnama
+    value: https://api-dotnama-stage.dpsb.ir/api/v1/
     description: ""

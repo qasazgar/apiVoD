@@ -5,7 +5,7 @@ info:
 
 http:
   method: post
-  url: https://api-dotnama-stage.dpsb.ir/api/v1/user/auth/login-password/
+  url: "{{URL-dotnama}}user/auth/login-password/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -39,20 +39,32 @@ http:
     type: json
     data: |-
       {
-        "phone_number": "09304216502",
-        "password": "Maryam!990"
+        "phone_number": "{{phone_number}} ",
+        "password": "{{password}}"
       }
   auth: inherit
 
 runtime:
   scripts:
-    - type: tests
+    - type: before-request
       code: |-
-        /* ============================================================
-           Bruno Test Script
-           Paste this in the "Tests" tab of the Bruno request (Login.bru / RequestLogin)
-           Bruno uses: test(), expect() (chai), res, and bru — NOT pm
-           ============================================================ */
+        // ============================================================
+        // script:pre-request
+        // (Bruno → Script tab → Pre Request)
+        // Runs before the request is sent.
+        // ============================================================
+
+        console.log("Sending login request...");
+
+        // Example: attach a fresh timestamp or request ID if your API needs one
+        // bru.setVar("request_timestamp", Date.now());
+    - type: after-response
+      code: |-
+        // ============================================================
+        // script:post-response
+        // (Bruno → Script tab → Post Response)
+        // Runs after the response is received — res is available here.
+        // ============================================================
 
         test("Response has status code 200", function () {
           expect(res.getStatus()).to.equal(200);
@@ -88,7 +100,6 @@ runtime:
         });
 
         test("access token is a valid JWT format", function () {
-          // JWT must have 3 parts separated by dots: header.payload.signature
           expect(jsonData.access.split(".").length).to.equal(3);
         });
 
@@ -111,13 +122,7 @@ runtime:
           expect(jsonData.user.is_active).to.equal(true);
         });
 
-
-        /* ============================================================
-           Optional: save tokens as runtime variables for chained requests
-           (e.g. use {{access_token}} in the Authorization header of the next request)
-           Add this in the "Vars" > "Post Response" tab, or here in Tests
-           ============================================================ */
-
+        // Save tokens as runtime variables for chained requests
         bru.setVar("access_token", jsonData.access);
         bru.setVar("refresh_token", jsonData.refresh);
         bru.setVar("user_id", jsonData.user_id);
