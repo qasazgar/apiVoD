@@ -2,47 +2,52 @@ name: VOD-dev
 variables:
   - name: phone_number
     value: "09304216502"
+    description: ""
   - name: Url-Dev-mydot
     value: https://api.dev1.dpsb.ir/mydot/api/v1/
+    description: ""
   - name: Gas-id
     value: "0343244206233"
+    description: ""
   - name: Water-id
     value: "2124050524319"
+    description: ""
   - name: Electricity-id
     value: "9078686308121"
+    description: ""
   - name: Rightel-sim
     value: "09223425102"
+    description: ""
   - name: Url-Production-Mydot
     value: https://api.mydot.one/mydot/
+    description: ""
   - name: Url-Stage
     value: https://api-superapp.mydot.one/
+    description: ""
   - name: Mci-sim
     value: "09120233186"
+    description: ""
   - name: Url-Dev
     value: https://api-superapp-dev.dpsb.ir/api/v1/
+    description: ""
   - name: plate_number_motor
     value: 138/57514
+    description: ""
   - name: national_id
     value: "0020227108"
+    description: ""
   - name: plate_number_car
     value: 83/د/681/68
+    description: ""
   - name: national_id_car
     value: "0793563925"
+    description: ""
   - name: phone_number_car
     value: "09905605090"
+    description: ""
   - name: national_id_motor
     value: "0440053153"
+    description: ""
   - name: phone_number_motor
     value: "09127988405"
-  - name: phone_number
-    value: "09304216502"
-  - name: password
-    value: Maryam!990
-  - name: URL-dotnama
-    value: https://api-dotnama-stage.dpsb.ir/api/v1/
-  - name: access_token
-    value: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODgxNjU0NzIsImV4cCI6MTc4ODE2OTA3MiwianRpIjoiMGM2MDU3NzQtZWM5Yy00OTYxLWI0MDMtNzRlNzllNWQ3N2I0IiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.0A--mSGv-ooOwCFeh9yOrxZvcRgndrEcAF2z_16r6qfr98cfk3TM_manssU9t9NGpBEFvr8HJIQUJ52KNIdAuQ
-  - name: refresh_token
-    value: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODgxNjU0NzIsImV4cCI6MTc4OTM3NTA3MiwianRpIjoiZDJjOTVmNWYtYThhMy00NzJlLWFhZDQtZWJhMzM5OWJiNTRlIiwidG9rZW5fdHlwZSI6InJlZnJlc2gifQ.73-ctfhClEbbWpU4q5T2nouLSr0ObH60OVusvjV58w5g7d-a58vzB4yGiBT7dLrCXLVGzh5iQgxUmtQwau_pDg
-  - name: user_id
-    value: 5a357f41-c196-4ebd-8426-bc8dccdaa26f
+    description: ""

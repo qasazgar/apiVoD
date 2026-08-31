@@ -46,18 +46,6 @@ http:
 
 runtime:
   scripts:
-    - type: before-request
-      code: |-
-        // ============================================================
-        // script:pre-request
-        // (Bruno → Script tab → Pre Request)
-        // Runs before the request is sent.
-        // ============================================================
-
-        console.log("Sending login request...");
-
-        // Example: attach a fresh timestamp or request ID if your API needs one
-        // bru.setVar("request_timestamp", Date.now());
     - type: after-response
       code: |-
         // ============================================================
