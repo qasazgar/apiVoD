@@ -53,14 +53,14 @@ runtime:
         // ============================================================
 
         const responseTime = res.getResponseTime();
-        console.log("Response time:", responseTime, "ms");
+
 
         test("Status code is 200", function () {
           expect(res.getStatus()).to.equal(200);
         });
 
-        test("Response time is less than 1000ms", function () {
-          expect(responseTime).to.be.below(1000);
+        test("Response time is less than 200ms", function () {
+          expect(responseTime).to.be.below(200);
         });
 
         const jsonData = res.getBody();
