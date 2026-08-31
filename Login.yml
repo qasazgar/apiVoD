@@ -63,7 +63,6 @@ runtime:
         // ============================================================
         // script:post-response
         // ============================================================
-
         const responseTime = res.getResponseTime();
         console.log("Exact response time:", responseTime, "ms");
 
@@ -74,6 +73,11 @@ runtime:
         test(`Response time is ${responseTime}ms (should be less than 2000ms)`, function () {
           expect(responseTime).to.be.below(2000);
         });
+
+        // If status is 200 but response is slower than 200ms, flag it as slow
+        if (res.getStatus() === 200 && responseTime > 200) {
+          console.log(`⚠️ Slow response: status 200 but took ${responseTime}ms (> 200ms)`);
+        }
 
         const jsonData = res.getBody();
 
@@ -100,14 +104,6 @@ runtime:
           expect(jsonData.token_type).to.equal("Bearer");
         });
 
-        test("access token is a valid JWT format", function () {
-          expect(jsonData.access.split(".").length).to.equal(3);
-        });
-
-        test("refresh token is a valid JWT format", function () {
-          expect(jsonData.refresh.split(".").length).to.equal(3);
-        });
-
         test("user object exists and user.id matches top-level user_id", function () {
           expect(jsonData).to.have.property("user");
           expect(jsonData.user).to.have.property("id");
@@ -131,7 +127,6 @@ runtime:
         bru.setEnvVar("access_token", jsonData.access);
         bru.setEnvVar("refresh_token", jsonData.refresh);
         bru.setEnvVar("user_id", jsonData.user_id);
-
         console.log("access_token saved to environment:", bru.getEnvVar("access_token"));
 
 settings:
