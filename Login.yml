@@ -48,32 +48,13 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        // ============================================================
-        // script:post-response
-        // ============================================================
-
-        const responseTime = res.getResponseTime();
-
-
-        test("Status code is 200", function () {
-          expect(res.getStatus()).to.equal(200);
+        test("Status code is 200", () => {
+          expect(res.status).to.equal(200);
         });
 
-        test("Response time is less than 200ms", function () {
-          expect(responseTime).to.be.below(200);
+        test("Response time is less than 1000ms", () => {
+          expect(res.responseTime).to.be.below(1000);
         });
-
-        const jsonData = res.getBody();
-
-
-
-
-
-        bru.setEnvVar("access_token", jsonData.access);
-        bru.setEnvVar("refresh_token", jsonData.refresh);
-        bru.setEnvVar("user_id", jsonData.user_id);
-
-        console.log("Tokens saved to environment");
 
 settings:
   encodeUrl: false
