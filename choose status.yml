@@ -1,0 +1,31 @@
+info:
+  name: choose status
+  type: http
+  seq: 2
+
+http:
+  method: post
+  url: https://api-dotnama-stage.dpsb.ir/api/v1/user/auth/subprofiles/170/switch/
+  headers:
+    - name: sec-ch-ua-platform
+      value: '"macOS"'
+    - name: Authorization
+      value: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODgzNTI4NTksImV4cCI6MTc4ODM1NjQ1OSwianRpIjoiYzg3N2NkMmYtMGQ3OC00ZDU2LWFhY2YtYzczZjgxYmZiNjgyIiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.1uCNMHOPItquegsG2EqAN5fn1N4WfSX0sWiFpS1OH1h2ZhwD3I0emUeCdh7R6ocpUfgz3atFiclomPDZFEOcsg
+    - name: Referer
+      value: https://dotnama-stage.dpsb.ir/
+    - name: User-Agent
+      value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
+    - name: Accept
+      value: application/json, text/plain, */*
+    - name: sec-ch-ua
+      value: '"Chromium";v="152", "Not?A_Brand";v="24", "Google Chrome";v="152"'
+    - name: sec-ch-ua-mobile
+      value: ?0
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
