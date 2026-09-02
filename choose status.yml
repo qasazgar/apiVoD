@@ -23,6 +23,24 @@ http:
       value: ?0
   auth: inherit
 
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const responseTime = res.getResponseTime();
+
+
+
+        const jsonData = res.getBody();
+
+        test("Status code is 200", () => {
+          expect(res.status).to.equal(200);
+        });
+
+        test("Response time is less than 200ms", () => {
+          expect(res.responseTime).to.be.below(200);
+        });
+
 settings:
   encodeUrl: false
   timeout: 0

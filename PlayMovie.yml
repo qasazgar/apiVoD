@@ -1,18 +1,18 @@
 info:
-  name: Logout
+  name: PlayMovie
   type: http
-  seq: 5
+  seq: 4
 
 http:
   method: post
-  url: https://api-dotnama-stage.dpsb.ir/api/v1/user/auth/logout/
+  url: https://api-dotnama-stage.dpsb.ir/api/v1/panel/movie-history/
   headers:
     - name: accept
       value: application/json, text/plain, */*
     - name: accept-language
       value: en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7
     - name: authorization
-      value: Bearer {{access_token}}
+      value: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE3MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDYyOFx1MDYzMlx1MDYzMVx1MDZhZlx1MDYzM1x1MDYyN1x1MDY0NCIsImFnZV9ncm91cCI6NSwibWF4X2NvbnRlbnRfcmF0aW5nIjoxNSwiaXNfZGVmYXVsdCI6ZmFsc2UsImlhdCI6MTc4ODM1NTIzOSwiZXhwIjoxNzg4MzU4ODM5LCJqdGkiOiIzNWM0MTc1Ni0zYjQyLTRlMWEtODQ2ZC0wZGJmMTYxM2YzYTgiLCJ0b2tlbl90eXBlIjoiYWNjZXNzIn0.FF8_hy-WiKG8zwYjc5xwcNOQk3Y0UB-PYefCGB4XEmnjAmqm4aONU4JNgU1L4tU-K9eOHQFuGDPSgQxNU4RSmQ
     - name: content-type
       value: application/json
     - name: origin
@@ -39,8 +39,9 @@ http:
     type: json
     data: |-
       {
-        "refresh": "{{refresh_token}}"
+        "movie_id": 27
       }
+  auth: inherit
 
 runtime:
   scripts:
@@ -52,8 +53,8 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("Status code is 200", () => {
-          expect(res.status).to.equal(200);
+        test("Status code is 201", () => {
+          expect(res.status).to.equal(201);
         });
 
         test("Response time is less than 200ms", () => {
