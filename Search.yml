@@ -1,0 +1,53 @@
+info:
+  name: Search
+  type: http
+  seq: 3
+
+http:
+  method: get
+  url: https://api-dotnama-stage.dpsb.ir/api/v1/search/?q=%D9%85
+  headers:
+    - name: sec-ch-ua-platform
+      value: '"macOS"'
+    - name: Authorization
+      value: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE3MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDYyOFx1MDYzMlx1MDYzMVx1MDZhZlx1MDYzM1x1MDYyN1x1MDY0NCIsImFnZV9ncm91cCI6NSwibWF4X2NvbnRlbnRfcmF0aW5nIjoxNSwiaXNfZGVmYXVsdCI6ZmFsc2UsImlhdCI6MTc4ODM1NTU1MCwiZXhwIjoxNzg4MzU5MTUwLCJqdGkiOiIxMjhhN2RkZS1lMjg2LTRjZTMtODFhNC0yNTg4ODQwOWU3YzIiLCJ0b2tlbl90eXBlIjoiYWNjZXNzIn0.wlnEv8swxGBsCDREuqORLkvDX54gQmh-ehi81PTRmefp7wuHdXP7zZL1TYSTubxmoLUEOsfwup2NjWPXTKRbxg
+    - name: Referer
+      value: https://dotnama-stage.dpsb.ir/
+    - name: User-Agent
+      value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
+    - name: Accept
+      value: application/json, text/plain, */*
+    - name: sec-ch-ua
+      value: '"Chromium";v="152", "Not?A_Brand";v="24", "Google Chrome";v="152"'
+    - name: sec-ch-ua-mobile
+      value: ?0
+  params:
+    - name: q
+      value: "%D9%85"
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const responseTime = res.getResponseTime();
+
+
+
+        const jsonData = res.getBody();
+
+        test("Status code is 200", () => {
+          expect(res.status).to.equal(200);
+        });
+
+        test("Response time is less than 200ms", () => {
+          expect(res.responseTime).to.be.below(200);
+        });
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
