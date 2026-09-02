@@ -61,8 +61,8 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("Status code is 200", () => {
-          expect(res.status).to.equal(200);
+        test("Status code is 201", () => {
+          expect(res.status).to.equal(201);
         });
 
         test("Response time is less than 200ms", () => {
