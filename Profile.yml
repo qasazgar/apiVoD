@@ -1,11 +1,11 @@
 info:
-  name: Logout
+  name: Profile
   type: http
-  seq: 11
+  seq: 10
 
 http:
-  method: post
-  url: "{{Stage_VOD}}/api/v1/user/auth/logout/"
+  method: get
+  url: "{{Stage_VOD}}/api/v1/user/auth/profile/{{id}}/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -13,8 +13,6 @@ http:
       value: en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7
     - name: authorization
       value: Bearer {{access_token}}
-    - name: content-type
-      value: application/json
     - name: origin
       value: https://dotnama-stage.dpsb.ir
     - name: priority
@@ -35,12 +33,7 @@ http:
       value: same-site
     - name: user-agent
       value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
-  body:
-    type: json
-    data: |-
-      {
-        "refresh": "{{refresh_token}}"
-      }
+  auth: inherit
 
 runtime:
   scripts:
