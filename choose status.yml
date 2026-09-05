@@ -5,7 +5,7 @@ info:
 
 http:
   method: post
-  url: "{{URL-dotnama}}/api/v1/user/auth/subprofiles/170/switch/"
+  url: "{{Stage_VOD}}/api/v1/user/auth/subprofiles/170/switch/"
   headers:
     - name: sec-ch-ua-platform
       value: '"macOS"'

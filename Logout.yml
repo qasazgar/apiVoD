@@ -1,11 +1,11 @@
 info:
   name: Logout
   type: http
-  seq: 8
+  seq: 9
 
 http:
   method: post
-  url: "{{URL-dotnama}}/api/v1/user/auth/logout/"
+  url: "{{Stage_VOD}}/api/v1/user/auth/logout/"
   headers:
     - name: accept
       value: application/json, text/plain, */*

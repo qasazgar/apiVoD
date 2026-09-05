@@ -5,7 +5,7 @@ info:
 
 http:
   method: get
-  url: "{{URL-dotnama}}/api/v1/comments/?movie_id={{movie_id}}"
+  url: "{{Stage_VOD}}/api/v1/comments/?movie_id={{movie_id}}"
   headers:
     - name: accept
       value: application/json

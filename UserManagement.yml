@@ -1,20 +1,18 @@
 info:
-  name: Login
+  name: UserManagement
   type: http
-  seq: 1
+  seq: 8
 
 http:
-  method: post
-  url: "{{Stage_VOD}}/api/v1/user/auth/login-password/"
+  method: get
+  url: "{{Stage_VOD}}/api/v1/menu/dashboard/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
     - name: accept-language
       value: en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7
     - name: authorization
-      value: Bearer  {{refresh_token}}
-    - name: content-type
-      value: application/json
+      value: Bearer {{access_token}}
     - name: origin
       value: https://dotnama-stage.dpsb.ir
     - name: priority
@@ -22,7 +20,7 @@ http:
     - name: referer
       value: https://dotnama-stage.dpsb.ir/
     - name: sec-ch-ua
-      value: '"Not=A?Brand";v="99", "Google Chrome";v="151", "Chromium";v="151"'
+      value: '"Chromium";v="152", "Not?A_Brand";v="24", "Google Chrome";v="152"'
     - name: sec-ch-ua-mobile
       value: ?0
     - name: sec-ch-ua-platform
@@ -34,14 +32,7 @@ http:
     - name: sec-fetch-site
       value: same-site
     - name: user-agent
-      value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36
-  body:
-    type: json
-    data: |-
-      {
-        "phone_number": "{{phone_number}} ",
-        "password": "{{password}}"
-      }
+      value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
   auth: inherit
 
 runtime:
@@ -61,17 +52,6 @@ runtime:
         test("Response time is less than 200ms", () => {
           expect(res.responseTime).to.be.below(200);
         });
-
-
-
-        if (jsonData && jsonData.access && jsonData.refresh) {
-          bru.setEnvVar("access_token", jsonData.access);
-          bru.setEnvVar("refresh_token", jsonData.refresh);
-          bru.setEnvVar("user_id", jsonData.user_id);
-          console.log("Tokens saved to environment");
-        } else {
-          console.log("Response data missing required fields");
-        }
 
 settings:
   encodeUrl: false

@@ -5,7 +5,7 @@ info:
 
 http:
   method: post
-  url: "{{URL-dotnama}}/api/v1/panel/movie-history/"
+  url: "{{Stage_VOD}}/api/v1/panel/movie-history/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
