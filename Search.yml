@@ -5,7 +5,7 @@ info:
 
 http:
   method: get
-  url: "{{URL-dotnama}}/api/v1/search/?q=%D9%85"
+  url: "{{Stage_VOD}}/api/v1/search/?q=%D9%85"
   headers:
     - name: sec-ch-ua-platform
       value: '"macOS"'
