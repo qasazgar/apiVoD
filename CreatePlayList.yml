@@ -1,11 +1,11 @@
 info:
-  name: Logout
+  name: CreatePlayList
   type: http
-  seq: 14
+  seq: 12
 
 http:
   method: post
-  url: "{{Stage_VOD}}/api/v1/user/auth/logout/"
+  url: "{{Stage_VOD}}/api/v1/panel/playlist/create/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -39,8 +39,11 @@ http:
     type: json
     data: |-
       {
-        "refresh": "{{refresh_token}}"
+        "playlist_type": "custom",
+        "custom_name": "sample22",
+        "movie": 220
       }
+  auth: inherit
 
 runtime:
   scripts:

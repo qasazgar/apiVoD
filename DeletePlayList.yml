@@ -1,20 +1,18 @@
 info:
-  name: Logout
+  name: DeletePlayList
   type: http
-  seq: 14
+  seq: 13
 
 http:
-  method: post
-  url: "{{Stage_VOD}}/api/v1/user/auth/logout/"
+  method: delete
+  url: "{{Stage_VOD}}/api/v1/panel/playlists/all-delete/?custom_name=sample22"
   headers:
     - name: accept
       value: application/json, text/plain, */*
     - name: accept-language
       value: en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7
     - name: authorization
-      value: Bearer {{access_token}}
-    - name: content-type
-      value: application/json
+      value: Bearer  {{access_token}}
     - name: origin
       value: https://dotnama-stage.dpsb.ir
     - name: priority
@@ -35,12 +33,11 @@ http:
       value: same-site
     - name: user-agent
       value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
-  body:
-    type: json
-    data: |-
-      {
-        "refresh": "{{refresh_token}}"
-      }
+  params:
+    - name: custom_name
+      value: sample22
+      type: query
+  auth: inherit
 
 runtime:
   scripts:
@@ -52,8 +49,8 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("Status code is 200", () => {
-          expect(res.status).to.equal(200);
+        test("Status code is 204", () => {
+          expect(res.status).to.equal(204);
         });
 
         test("Response time is less than 200ms", () => {
