@@ -5,7 +5,7 @@ info:
 
 http:
   method: post
-  url: https://api-dotnama-stage.dpsb.ir/api/v1/panel/playlists/check/
+  url: "{{URL-dotnama}}/api/v1/panel/playlists/check/"
   headers:
     - name: accept
       value: application/json, text/plain, */*

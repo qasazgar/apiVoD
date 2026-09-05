@@ -5,7 +5,7 @@ info:
 
 http:
   method: post
-  url: "{{URL-dotnama}}user/auth/login-password/"
+  url: "{{URL-dotnama}}/api/v1/user/auth/login-password/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
