@@ -5,7 +5,7 @@ info:
 
 http:
   method: post
-  url: https://api-dotnama-stage.dpsb.ir/api/v1/feedback/
+  url: "{{URL-dotnama}}/api/v1/feedback/"
   headers:
     - name: accept
       value: application/json, text/plain, */*

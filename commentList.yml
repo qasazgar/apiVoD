@@ -1,0 +1,45 @@
+info:
+  name: commentList
+  type: http
+  seq: 7
+
+http:
+  method: get
+  url: "{{URL-dotnama}}/api/v1/comments/?movie_id={{movie_id}}"
+  headers:
+    - name: accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{access_token}}
+    - name: X-CSRFTOKEN
+      value: qFEwUUgu8eQVrTqWSUqQ4X35NeEYb38UU007t5WILu46zveu0rvdYpdv4MOxvD9S
+  params:
+    - name: movie_id
+      value: "{{movie_id}}"
+      type: query
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const responseTime = res.getResponseTime();
+
+
+
+        const jsonData = res.getBody();
+
+        test("Status code is 200", () => {
+          expect(res.status).to.equal(200);
+        });
+
+        test("Response time is less than 200ms", () => {
+          expect(res.responseTime).to.be.below(200);
+        });
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
