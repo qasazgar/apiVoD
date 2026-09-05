@@ -10,7 +10,7 @@ http:
     - name: sec-ch-ua-platform
       value: '"macOS"'
     - name: Authorization
-      value: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODgzNTI4NTksImV4cCI6MTc4ODM1NjQ1OSwianRpIjoiYzg3N2NkMmYtMGQ3OC00ZDU2LWFhY2YtYzczZjgxYmZiNjgyIiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.1uCNMHOPItquegsG2EqAN5fn1N4WfSX0sWiFpS1OH1h2ZhwD3I0emUeCdh7R6ocpUfgz3atFiclomPDZFEOcsg
+      value: Bearer {{access_token}}
     - name: Referer
       value: https://dotnama-stage.dpsb.ir/
     - name: User-Agent

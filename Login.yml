@@ -12,7 +12,7 @@ http:
     - name: accept-language
       value: en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7
     - name: authorization
-      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTdlOGE0YmMtZmQ2OS00YWVjLTgyZmMtYjMzOTQ3NmE2MThjIiwicGhvbmUiOiI5OTMwNTEzNTc0Iiwic3VicHJvZmlsZV9pZCI6bnVsbCwic3VicHJvZmlsZV9uYW1lIjoiTWFpbiBQcm9maWxlIiwiYWdlX2dyb3VwIjoiQUxMIiwibWF4X2NvbnRlbnRfcmF0aW5nIjoxOCwiaXNfZGVmYXVsdCI6dHJ1ZSwiaWF0IjoxNzY2OTk0NDUyLCJleHAiOjE3NjY5OTgwNTIsImp0aSI6Ijk0NWUwYzM3LTNlOGMtNGFiYS04N2NlLTVhZGY3NTJjZDM1NiIsInRva2VuX3R5cGUiOiJhY2Nlc3MifQ.6STP1NT9L0P6zq1Igzz8dIL4vjUdkaZjtn9Txg_I_7E
+      value: Bearer  {{refresh_token}}
     - name: content-type
       value: application/json
     - name: origin
