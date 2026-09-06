@@ -15,6 +15,24 @@ http:
       value: iLva68eDifnRLajeoD57UgWD0zfnGQDzM6RLFjURVvB2TM7MwaauOI63h7pW0qEx
   auth: inherit
 
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const responseTime = res.getResponseTime();
+
+
+
+        const jsonData = res.getBody();
+
+        test("Status code is 200", () => {
+          expect(res.status).to.equal(200);
+        });
+
+        test("Response time is less than 200ms", () => {
+          expect(res.responseTime).to.be.below(200);
+        });
+
 settings:
   encodeUrl: false
   timeout: 0
