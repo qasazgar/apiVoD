@@ -39,7 +39,7 @@ http:
     type: json
     data: |-
       {
-        "movie_id": 27
+        "movie_id": "{{FirstSearch}}"
       }
   auth: inherit
 

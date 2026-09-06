@@ -45,6 +45,17 @@ runtime:
           expect(res.responseTime).to.be.below(200);
         });
 
+        if (jsonData && Array.isArray(jsonData.movies) && jsonData.movies.length > 0) {
+          // Take the first item's id
+          const FirstMovie = jsonData.movies[0].id;
+
+          bru.setEnvVar("FirstSearch", FirstMovie);
+
+          console.log("First ID saved to environment variable Fullaccess:", FirstMovie);
+        } else {
+          console.log("Response data missing required fields");
+        }
+
 settings:
   encodeUrl: false
   timeout: 0
