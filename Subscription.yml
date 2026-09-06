@@ -1,0 +1,27 @@
+info:
+  name: Subscription
+  type: http
+  seq: 16
+
+http:
+  method: get
+  url: https://api-dotnama-stage.dpsb.ir/api/v1/panel/subscription/?page=1
+  headers:
+    - name: accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{access_token}}
+    - name: X-CSRFTOKEN
+      value: iLva68eDifnRLajeoD57UgWD0zfnGQDzM6RLFjURVvB2TM7MwaauOI63h7pW0qEx
+  params:
+    - name: page
+      value: "1"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

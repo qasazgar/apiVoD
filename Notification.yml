@@ -1,0 +1,23 @@
+info:
+  name: Notification
+  type: http
+  seq: 15
+
+http:
+  method: get
+  url: "{{Stage_VOD}}/api/v1/panel/notification/"
+  headers:
+    - name: accept
+      value: application/json
+    - name: Authorization
+      value: Bearer {{access_token}}
+    - name: X-CSRFTOKEN
+      value: iLva68eDifnRLajeoD57UgWD0zfnGQDzM6RLFjURVvB2TM7MwaauOI63h7pW0qEx
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -5,7 +5,7 @@ info:
 
 http:
   method: get
-  url: "{{Stage_VOD}}/api/v1/user/auth/profile/{{id}}/"
+  url: "{{Stage_VOD}}/api/v1/user/auth/profile/{{Fullaccess}}/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
