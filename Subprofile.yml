@@ -1,16 +1,16 @@
 info:
-  name: Search
+  name: Subprofile
   type: http
-  seq: 4
+  seq: 2
 
 http:
   method: get
-  url: "{{Stage_VOD}}/api/v1/search/?q=%D9%85"
+  url: "{{access_token}}/api/v1/user/auth/subprofiles/"
   headers:
     - name: sec-ch-ua-platform
       value: '"macOS"'
     - name: Authorization
-      value: Bearer {{access_token}}
+      value: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODg3MDAyMzQsImV4cCI6MTc4ODcwMzgzNCwianRpIjoiMjJmMmM0NjAtYzIwZS00ZWI4LTkyMDAtMGNmNTlhN2VhZjNjIiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.swBxWd4_yVCQOhKEe4Y2ahMWLNvXf88LJVmtar22J9NK83njUHTeSBHfhDHjZHFwnsx7mvgk6425fmvovdvBeg
     - name: Referer
       value: https://dotnama-stage.dpsb.ir/
     - name: User-Agent
@@ -21,29 +21,7 @@ http:
       value: '"Chromium";v="152", "Not?A_Brand";v="24", "Google Chrome";v="152"'
     - name: sec-ch-ua-mobile
       value: ?0
-  params:
-    - name: q
-      value: "%D9%85"
-      type: query
   auth: inherit
-
-runtime:
-  scripts:
-    - type: after-response
-      code: |-
-        const responseTime = res.getResponseTime();
-
-
-
-        const jsonData = res.getBody();
-
-        test("Status code is 200", () => {
-          expect(res.status).to.equal(200);
-        });
-
-        test("Response time is less than 200ms", () => {
-          expect(res.responseTime).to.be.below(200);
-        });
 
 settings:
   encodeUrl: false
