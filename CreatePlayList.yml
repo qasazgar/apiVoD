@@ -39,9 +39,9 @@ http:
     type: json
     data: |-
       {
-        "playlist_type": "custom",
-        "custom_name": "sample22",
-        "movie": 220
+        "playlist_type": "{{playlist_type}}",
+        "custom_name": "{{custom_name}}",
+        "movie": "{{movie}}"
       }
   auth: inherit
 

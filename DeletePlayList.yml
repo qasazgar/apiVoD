@@ -5,7 +5,7 @@ info:
 
 http:
   method: delete
-  url: "{{Stage_VOD}}/api/v1/panel/playlists/all-delete/?custom_name=sample22"
+  url: "{{Stage_VOD}}/api/v1/panel/playlists/all-delete/?custom_name={{custom_name}}"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -35,7 +35,7 @@ http:
       value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
   params:
     - name: custom_name
-      value: sample22
+      value: "{{custom_name}}"
       type: query
   auth: inherit
 

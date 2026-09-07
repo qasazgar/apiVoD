@@ -42,7 +42,7 @@ http:
         "items": [
           {
             "id": "{{FirstSearch}}",
-            "type": "movie"
+            "type": "{{type}}"
           }
         ]
       }
