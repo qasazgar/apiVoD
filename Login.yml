@@ -67,15 +67,9 @@ runtime:
 
 
 
-        if (res.responseTime > 500) {
-          test("Response time is not less than 500ms", () => {
-            expect(res.responseTime).to.be.above(500);
-          });
-        } else {
-          test("Response time is less than 500ms", () => {
-            expect(res.responseTime).to.be.below(500);
-          });
-        }
+        test("Response time is less than 500ms", () => {
+          expect(res.responseTime ).to.be.below(500);
+        });
 
 
         if (jsonData && jsonData.access && jsonData.refresh) {
