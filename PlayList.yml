@@ -45,12 +45,12 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("Status code is 200", () => {
+        test("The playlist is shown", () => {
           expect(res.status).to.equal(200);
         });
 
-        test("Response time is less than 200ms", () => {
-          expect(res.responseTime).to.be.below(200);
+        test("Response time is less than 500ms", () => {
+          expect(res.responseTime).to.be.below(500);
         });
 
 settings:

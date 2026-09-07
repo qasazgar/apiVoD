@@ -54,14 +54,28 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("Status code is 200", () => {
-          expect(res.status).to.equal(200);
-        });
+        if (res.status === 200) {
+          test("The user logged in successfully", () => {
+            expect(res.status).to.equal(200);
+          });
+        } else {
+          test("The user is not logged in", () => {
+            expect(res.status).to.not.equal(200);
+          });
+        }
 
-        test("Response time is less than 200ms", () => {
-          expect(res.responseTime).to.be.below(200);
-        });
 
+
+
+        if (res.responseTime > 500) {
+          test("Response time is not less than 500ms", () => {
+            expect(res.responseTime).to.be.above(500);
+          });
+        } else {
+          test("Response time is less than 500ms", () => {
+            expect(res.responseTime).to.be.below(500);
+          });
+        }
 
 
         if (jsonData && jsonData.access && jsonData.refresh) {

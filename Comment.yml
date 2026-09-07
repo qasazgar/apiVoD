@@ -61,7 +61,7 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("Status code is 201", () => {
+        test("comment is written", () => {
           expect(res.status).to.equal(201);
         });
 
