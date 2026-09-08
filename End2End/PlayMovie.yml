@@ -1,11 +1,11 @@
 info:
-  name: PlayList
+  name: PlayMovie
   type: http
-  seq: 12
+  seq: 9
 
 http:
-  method: get
-  url: "{{Stage_VOD}}/api/v1/panel/playlist/list/"
+  method: post
+  url: "{{Stage_VOD}}/api/v1/panel/movie-history/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -13,6 +13,8 @@ http:
       value: en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7
     - name: authorization
       value: Bearer {{access_token}}
+    - name: content-type
+      value: application/json
     - name: origin
       value: https://dotnama-stage.dpsb.ir
     - name: priority
@@ -33,6 +35,12 @@ http:
       value: same-site
     - name: user-agent
       value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
+  body:
+    type: json
+    data: |-
+      {
+        "movie_id": "{{FirstSearch}}"
+      }
   auth: inherit
 
 runtime:
@@ -45,8 +53,8 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The playlist is shown", () => {
-          expect(res.status).to.equal(200);
+        test("The movie is playing", () => {
+          expect(res.status).to.equal(201);
         });
 
         test("Response time is less than 500ms", () => {

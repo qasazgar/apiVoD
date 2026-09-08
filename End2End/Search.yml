@@ -1,7 +1,7 @@
 info:
   name: Search
   type: http
-  seq: 4
+  seq: 7
 
 http:
   method: get

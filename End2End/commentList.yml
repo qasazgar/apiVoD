@@ -1,7 +1,7 @@
 info:
   name: commentList
   type: http
-  seq: 8
+  seq: 10
 
 http:
   method: get

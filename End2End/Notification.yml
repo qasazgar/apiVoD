@@ -1,11 +1,11 @@
 info:
-  name: Subscription
+  name: Notification
   type: http
-  seq: 16
+  seq: 6
 
 http:
   method: get
-  url: https://api-dotnama-stage.dpsb.ir/api/v1/panel/subscription/?page=1
+  url: "{{Stage_VOD}}/api/v1/panel/notification/"
   headers:
     - name: accept
       value: application/json
@@ -13,10 +13,6 @@ http:
       value: Bearer {{access_token}}
     - name: X-CSRFTOKEN
       value: iLva68eDifnRLajeoD57UgWD0zfnGQDzM6RLFjURVvB2TM7MwaauOI63h7pW0qEx
-  params:
-    - name: page
-      value: "1"
-      type: query
   auth: inherit
 
 runtime:
@@ -29,7 +25,7 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The user subscription shown correctly", () => {
+        test("The notification page works correctly", () => {
           expect(res.status).to.equal(200);
         });
 

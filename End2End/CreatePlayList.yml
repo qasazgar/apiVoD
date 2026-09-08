@@ -1,11 +1,11 @@
 info:
-  name: Comment
+  name: CreatePlayList
   type: http
-  seq: 7
+  seq: 15
 
 http:
   method: post
-  url: "{{Stage_VOD}}/api/v1/feedback/"
+  url: "{{Stage_VOD}}/api/v1/panel/playlist/create/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -15,8 +15,6 @@ http:
       value: Bearer {{access_token}}
     - name: content-type
       value: application/json
-    - name: Cookie
-      value: access_token=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg4MzU2ODQ2LCJpYXQiOjE3ODgxNzgxNzAsImp0aSI6ImE0YmM3ODE1MWUwMTQ3MGQ5NTkxNGE1NjhlZTJmYjJiIiwidXNlcl9pZCI6IjJmOThjOWE4LWYzMzYtNDNkOS1iZGY4LTYzZTVmOTA2NGQ2MCJ9.2XjOvqGebqVYoOElD2CS35IXa9XoTZbriprQ8Atyl3OL75CRDPkLkik9hTihlNCLFFODddm4Tu6GRF308l9OdA; is_logged_in=true
     - name: origin
       value: https://dotnama-stage.dpsb.ir
     - name: priority
@@ -41,13 +39,9 @@ http:
     type: json
     data: |-
       {
-        "comment_id": null,
-        "comment": "good",
-        "movie_id": 27,
-        "series_id": null,
-        "rate": 2,
-        "action": "add",
-        "feedback_type": "like"
+        "playlist_type": "{{playlist_type}}",
+        "custom_name": "{{custom_name}}",
+        "movie": "{{movie}}"
       }
   auth: inherit
 
@@ -61,12 +55,12 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("comment is written", () => {
-          expect(res.status).to.equal(201);
+        test("The playlist is created", () => {
+          expect(res.status).to.equal(200);
         });
 
-        test("Response time is less than 200ms", () => {
-          expect(res.responseTime).to.be.below(200);
+        test("Response time is less than 500ms", () => {
+          expect(res.responseTime).to.be.below(500);
         });
 
 settings:

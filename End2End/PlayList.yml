@@ -1,11 +1,11 @@
 info:
-  name: UserManagement
+  name: PlayList
   type: http
-  seq: 9
+  seq: 14
 
 http:
   method: get
-  url: "{{Stage_VOD}}/api/v1/menu/dashboard/"
+  url: "{{Stage_VOD}}/api/v1/panel/playlist/list/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -45,7 +45,7 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The user management page is shown", () => {
+        test("The playlist is shown", () => {
           expect(res.status).to.equal(200);
         });
 
