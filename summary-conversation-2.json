@@ -1,0 +1,183 @@
+{
+    "metrics": {
+        "vus": {
+            "min": 1,
+            "max": 2,
+            "value": 1
+        },
+        "ws_msgs_sent": {
+            "count": 4,
+            "rate": 0.20367121333627294
+        },
+        "http_req_duration": {
+            "p(95)": 206.726485,
+            "avg": 206.02345,
+            "min": 205.2423,
+            "med": 206.02345,
+            "max": 206.8046,
+            "p(90)": 206.64837
+        },
+        "http_req_connecting": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "ws_connecting": {
+            "avg": 1661.7884999999999,
+            "min": 39.1917,
+            "med": 1661.7885,
+            "max": 3284.3853,
+            "p(90)": 2959.86594,
+            "p(95)": 3122.12562
+        },
+        "ws_sessions": {
+            "count": 2,
+            "rate": 0.10183560666813647
+        },
+        "ws_session_duration": {
+            "avg": 16664.0226,
+            "min": 15042.4099,
+            "med": 16664.0226,
+            "max": 18285.6353,
+            "p(90)": 17961.31276,
+            "p(95)": 18123.47403
+        },
+        "http_req_tls_handshaking": {
+            "min": 35.7623,
+            "med": 35.7623,
+            "max": 35.7623,
+            "p(90)": 35.7623,
+            "p(95)": 35.7623,
+            "avg": 35.7623
+        },
+        "checks": {
+            "passes": 4,
+            "fails": 6,
+            "value": 0.4
+        },
+        "http_req_blocked": {
+            "min": 46.1707,
+            "med": 46.1707,
+            "max": 46.1707,
+            "p(90)": 46.1707,
+            "p(95)": 46.1707,
+            "avg": 46.1707
+        },
+        "iterations": {
+            "count": 2,
+            "rate": 0.10183560666813647
+        },
+        "http_reqs": {
+            "rate": 0.10183560666813647,
+            "count": 2
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 2,
+            "value": 0
+        },
+        "data_sent": {
+            "rate": 478.7291869469095,
+            "count": 9402
+        },
+        "iteration_duration": {
+            "avg": 18018.8566,
+            "min": 16398.2171,
+            "med": 18018.8566,
+            "max": 19639.4961,
+            "p(90)": 19315.3682,
+            "p(95)": 19477.43215
+        },
+        "http_req_receiving": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_waiting": {
+            "avg": 205.50955,
+            "min": 204.7284,
+            "med": 205.50955,
+            "max": 206.2907,
+            "p(90)": 206.13447,
+            "p(95)": 206.212585
+        },
+        "data_received": {
+            "rate": 1123.7050017795518,
+            "count": 22069
+        },
+        "vus_max": {
+            "min": 2,
+            "max": 2,
+            "value": 2
+        },
+        "http_req_sending": {
+            "med": 0.5139,
+            "max": 0.5139,
+            "p(90)": 0.5139,
+            "p(95)": 0.5139,
+            "avg": 0.5139,
+            "min": 0.5139
+        },
+        "ws_msgs_received": {
+            "count": 8,
+            "rate": 0.4073424266725459
+        },
+        "http_req_duration{expected_response:true}": {
+            "min": 205.2423,
+            "med": 206.02345,
+            "max": 206.8046,
+            "p(90)": 206.64837,
+            "p(95)": 206.726485,
+            "avg": 206.02345
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "login succeeded": {
+                    "fails": 0,
+                    "name": "login succeeded",
+                    "path": "::login succeeded",
+                    "id": "904b20f978ea9858883ce098334e6bab",
+                    "passes": 2
+                },
+                "Socket.IO connection succeeded": {
+                    "name": "Socket.IO connection succeeded",
+                    "path": "::Socket.IO connection succeeded",
+                    "id": "7432e72874d3fc0410e1dde395e90598",
+                    "passes": 2,
+                    "fails": 0
+                },
+                "conversation focused": {
+                    "passes": 0,
+                    "fails": 2,
+                    "name": "conversation focused",
+                    "path": "::conversation focused",
+                    "id": "01d3a2e1dc0bdef9366eebda8c192f51"
+                },
+                "2 messages acknowledged": {
+                    "name": "2 messages acknowledged",
+                    "path": "::2 messages acknowledged",
+                    "id": "c6878daeaf6b488be7f38ff5bee8cf1f",
+                    "passes": 0,
+                    "fails": 2
+                },
+                "2 messages received": {
+                    "passes": 0,
+                    "fails": 2,
+                    "name": "2 messages received",
+                    "path": "::2 messages received",
+                    "id": "c3b35cd1a3f965ad576aa61fabf01daf"
+                }
+            }
+    }
+}

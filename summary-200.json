@@ -1,0 +1,88 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "Socket.IO connection succeeded": {
+                    "id": "7432e72874d3fc0410e1dde395e90598",
+                    "passes": 0,
+                    "fails": 200,
+                    "name": "Socket.IO connection succeeded",
+                    "path": "::Socket.IO connection succeeded"
+                },
+                "1 messages acknowledged": {
+                    "id": "4cb8713f0a0313e54eae0f587503cd89",
+                    "passes": 0,
+                    "fails": 200,
+                    "name": "1 messages acknowledged",
+                    "path": "::1 messages acknowledged"
+                },
+                "1 messages received": {
+                    "path": "::1 messages received",
+                    "id": "83eda567a8a0258cb414d17ce0e183d2",
+                    "passes": 0,
+                    "fails": 200,
+                    "name": "1 messages received"
+                }
+            }
+    },
+    "metrics": {
+        "ws_sessions": {
+            "count": 200,
+            "rate": 3.2756388189313435
+        },
+        "data_received": {
+            "count": 757803,
+            "rate": 12411.444619513144
+        },
+        "iterations": {
+            "count": 200,
+            "rate": 3.2756388189313435
+        },
+        "ws_session_duration": {
+            "max": 60005.2948,
+            "p(90)": 60004.03135,
+            "p(95)": 60004.7067,
+            "avg": 60001.753292500034,
+            "min": 60000.056,
+            "med": 60001.4111
+        },
+        "vus": {
+            "min": 200,
+            "max": 200,
+            "value": 200
+        },
+        "ws_connecting": {
+            "p(95)": 60004.2662,
+            "avg": 60001.66733350003,
+            "min": 60000.056,
+            "med": 60001.4105,
+            "max": 60005.2948,
+            "p(90)": 60003.9319
+        },
+        "data_sent": {
+            "count": 397400,
+            "rate": 6508.694333216579
+        },
+        "iteration_duration": {
+            "min": 61007.1462,
+            "med": 61050.643299999996,
+            "max": 61055.738,
+            "p(90)": 61054.467,
+            "p(95)": 61054.9907,
+            "avg": 61047.383224
+        },
+        "checks": {
+            "passes": 0,
+            "fails": 600,
+            "value": 0
+        },
+        "vus_max": {
+            "value": 200,
+            "min": 200,
+            "max": 200
+        }
+    }
+}
