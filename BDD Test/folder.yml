@@ -1,0 +1,7 @@
+info:
+  name: BDD Test
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit

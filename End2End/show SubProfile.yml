@@ -1,11 +1,11 @@
 info:
-  name: Profile
+  name: " show SubProfile"
   type: http
-  seq: 4
+  seq: 2
 
 http:
   method: get
-  url: "{{Stage_VOD}}/api/v1/user/auth/profile/{{Fullaccess}}/"
+  url: "{{Stage_VOD}}/api/v1/user/auth/subprofiles/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -45,13 +45,24 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The profile is shown", () => {
+        test("Sub profile list successfully shown", () => {
           expect(res.status).to.equal(200);
         });
 
         test("Response time is less than 500ms", () => {
           expect(res.responseTime).to.be.below(500);
         });
+
+        if (jsonData && Array.isArray(jsonData.results) && jsonData.results.length > 0) {
+          // Take the first item's id
+          const firstId = jsonData.results[0].id;
+
+          bru.setEnvVar("Fullaccess", firstId);
+
+          console.log("First ID saved to environment variable Fullaccess:", firstId);
+        } else {
+          console.log("Response data missing required fields");
+        }
 
 settings:
   encodeUrl: false
