@@ -5,7 +5,7 @@ info:
 
 http:
   method: get
-  url: https://api-dotnama-stage.dpsb.ir/api/v1/panel/subscription/?page=1
+  url: "{{Stage_VOD}}/api/v1/panel/subscription/?page=1"
   headers:
     - name: accept
       value: application/json
