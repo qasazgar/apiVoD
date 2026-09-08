@@ -1,11 +1,11 @@
 info:
-  name: PlayList
+  name: View Recent Search
   type: http
-  seq: 14
+  seq: 12
 
 http:
   method: get
-  url: "{{Stage_VOD}}/api/v1/panel/playlist/list/"
+  url: "{{Stage_VOD}}/api/v1/panel/recent-search/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -45,7 +45,7 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The playlist is shown", () => {
+        test("The recent search is shown", () => {
           expect(res.status).to.equal(200);
         });
 

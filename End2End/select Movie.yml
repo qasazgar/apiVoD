@@ -1,11 +1,11 @@
 info:
-  name: History
+  name: select Movie
   type: http
-  seq: 13
+  seq: 8
 
 http:
-  method: get
-  url: "{{Stage_VOD}}/api/v1/panel/history/"
+  method: post
+  url: "{{Stage_VOD}}/api/v1/panel/playlists/check/"
   headers:
     - name: accept
       value: application/json, text/plain, */*
@@ -13,6 +13,8 @@ http:
       value: en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7
     - name: authorization
       value: Bearer {{access_token}}
+    - name: content-type
+      value: application/json
     - name: origin
       value: https://dotnama-stage.dpsb.ir
     - name: priority
@@ -33,6 +35,17 @@ http:
       value: same-site
     - name: user-agent
       value: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
+  body:
+    type: json
+    data: |-
+      {
+        "items": [
+          {
+            "id": "{{FirstSearch}}",
+            "type": "{{type}}"
+          }
+        ]
+      }
   auth: inherit
 
 runtime:
@@ -45,7 +58,7 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The history of user is shown", () => {
+        test("The movie is selected", () => {
           expect(res.status).to.equal(200);
         });
 

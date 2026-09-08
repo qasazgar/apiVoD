@@ -1,21 +1,21 @@
 info:
-  name: Subscription
+  name: view comment List
   type: http
-  seq: 5
+  seq: 10
 
 http:
   method: get
-  url: "{{Stage_VOD}}/api/v1/panel/subscription/?page=1"
+  url: "{{Stage_VOD}}/api/v1/comments/?movie_id={{movie_id}}"
   headers:
     - name: accept
       value: application/json
     - name: Authorization
       value: Bearer {{access_token}}
     - name: X-CSRFTOKEN
-      value: iLva68eDifnRLajeoD57UgWD0zfnGQDzM6RLFjURVvB2TM7MwaauOI63h7pW0qEx
+      value: qFEwUUgu8eQVrTqWSUqQ4X35NeEYb38UU007t5WILu46zveu0rvdYpdv4MOxvD9S
   params:
-    - name: page
-      value: "1"
+    - name: movie_id
+      value: "{{movie_id}}"
       type: query
   auth: inherit
 
@@ -29,7 +29,7 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The user subscription shown correctly", () => {
+        test("comment list is shown", () => {
           expect(res.status).to.equal(200);
         });
 
