@@ -31,6 +31,7 @@ runtime:
 
         test("comment list is shown", () => {
           expect(res.status).to.equal(200);
+          console.log("comment list is shown")
         });
 
         test("Response time is less than 500ms", () => {

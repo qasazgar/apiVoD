@@ -39,7 +39,7 @@ http:
     type: json
     data: |-
       {
-        "movie_id": "{{FirstSearch}}"
+        "movie_id": "{{SearchedMovie}}"
       }
   auth: inherit
 
@@ -55,6 +55,7 @@ runtime:
 
         test("The movie is playing", () => {
           expect(res.status).to.equal(201);
+          console.log("The movie is selected")
         });
 
         test("Response time is less than 500ms", () => {

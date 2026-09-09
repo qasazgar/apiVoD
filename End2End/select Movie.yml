@@ -41,7 +41,7 @@ http:
       {
         "items": [
           {
-            "id": "{{FirstSearch}}",
+            "id": "{{SearchedMovie}}",
             "type": "{{type}}"
           }
         ]
@@ -49,6 +49,9 @@ http:
   auth: inherit
 
 runtime:
+  variables:
+    - name: SearchedMovie
+      value: "26"
   scripts:
     - type: after-response
       code: |-
@@ -60,6 +63,7 @@ runtime:
 
         test("The movie is selected", () => {
           expect(res.status).to.equal(200);
+          console.log("The movie is selected")
         });
 
         test("Response time is less than 500ms", () => {

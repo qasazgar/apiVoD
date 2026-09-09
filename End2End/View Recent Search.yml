@@ -45,8 +45,9 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The recent search is shown", () => {
+        test("The user recent search is shown", () => {
           expect(res.status).to.equal(200);
+          console.log("The user recent search is shown")
         });
 
         test("Response time is less than 500ms", () => {

@@ -7,9 +7,9 @@ variables:
   - name: Stage_VOD
     value: https://api-dotnama-stage.dpsb.ir
   - name: access_token
-    value: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODg4NjU5ODIsImV4cCI6MTc4ODg2OTU4MiwianRpIjoiY2E5M2UwY2UtN2U2MS00OWU0LWE2OTEtYTkzNTY2NzZmMDAwIiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.uBEDR5hWTMpoKmTM9nJ0cwyDP1eiJ2iMNNSbO1EZaUSgC82C9dp6P2lhnE0xYeIKwSpOhEU-WrKx_5w67DB6EA
+    value: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODg5NDM4ODUsImV4cCI6MTc4ODk0NzQ4NSwianRpIjoiZTYzNDlhYmUtNDFjNS00MzUwLTk2ZjgtOWU4OGM3ZWY1M2QyIiwidG9rZW5fdHlwZSI6ImFjY2VzcyJ9.z7zSwm7M1f6147BwvbcurT_bZp0rtH8-Kb44FrTVSXjFK6lE0NtcCA02uXE4Ion3CFqxu0RS6iq9hUsiV91KFQ
   - name: refresh_token
-    value: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODg4NjU5ODIsImV4cCI6MTc5MDA3NTU4MiwianRpIjoiZDY3ZTAzNzYtNDc0OC00YzU5LTk1M2MtZjZiNDlkYzg3NmI3IiwidG9rZW5fdHlwZSI6InJlZnJlc2gifQ.fPMJ-UGYi07k4qgMSx-X1boMOl51QU_3OB8XZNcAjR9iVENT1zn6GybUFqDO5TQSDBcHgcN95kZ6XvCYD0zVGA
+    value: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNWEzNTdmNDEtYzE5Ni00ZWJkLTg0MjYtYmM4ZGNjZGFhMjZmIiwicGhvbmUiOiI5MzA0MjE2NTAyIiwic3VicHJvZmlsZV9pZCI6IjE2MCIsInN1YnByb2ZpbGVfbmFtZSI6Ilx1MDY0NVx1MDYzMVx1MDZjY1x1MDY0NSBcdTA2NDFcdTA2NDFcdTA2NDFcdTA2MzkgXHUwNjQ1XHUwNjJmXHUwNjI4XHUwNjMxXHUwNmNjIiwiYWdlX2dyb3VwIjo2LCJtYXhfY29udGVudF9yYXRpbmciOjE4LCJpc19kZWZhdWx0Ijp0cnVlLCJpYXQiOjE3ODg5NDM4ODUsImV4cCI6MTc5MDE1MzQ4NSwianRpIjoiYzMyNWJlZDQtOTI0Yy00NWQ3LWIxYmUtNTgxY2YwYmY0NmE1IiwidG9rZW5fdHlwZSI6InJlZnJlc2gifQ.HqYDni21b2eG3qt0LdE4wPl0JKpMQY5nJw3VX2HYTdAktaevzxhyReclMVi3zGcWkGR_o9xlobmEs-cmtcaspg
   - name: user_id
     value: 5a357f41-c196-4ebd-8426-bc8dccdaa26f
   - name: movie_id
@@ -18,15 +18,15 @@ variables:
     value:
       type: number
       data: "160"
-  - name: FirstSearch
-    value:
-      type: number
-      data: "16"
-  - name: type
-    value: movie
   - name: playlist_type
     value: custom
   - name: custom_name
     value: sample22
   - name: movie
     value: "220"
+  - name: SearchedMovie
+    value:
+      type: number
+      data: "133"
+  - name: type
+    value: movie

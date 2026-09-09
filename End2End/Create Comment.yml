@@ -42,10 +42,10 @@ http:
     data: |-
       {
         "comment_id": null,
-        "comment": "good",
+        "comment": "{{randomComment}}",
         "movie_id": 27,
         "series_id": null,
-        "rate": 2,
+        "rate": {{randomRate}},
         "action": "add",
         "feedback_type": "like"
       }
@@ -53,6 +53,24 @@ http:
 
 runtime:
   scripts:
+    - type: before-request
+      code: |-
+        const commentPhrases = [
+          "movie was good",
+          "I like the movie",
+          "greate movie",
+          "فیلم جالبی بود",
+          "از دیدن فیلم لذت بردم",
+          "خیلی عالی بود"
+        ];
+
+        const randomComment = commentPhrases[Math.floor(Math.random() * commentPhrases.length)];
+
+        // Random rate 1 to 5
+        const randomRate = Math.floor(Math.random() * 5) + 1;
+
+        bru.setVar("randomComment", randomComment);
+        bru.setVar("randomRate", randomRate);
     - type: after-response
       code: |-
         const responseTime = res.getResponseTime();
@@ -63,6 +81,7 @@ runtime:
 
         test("comment is written", () => {
           expect(res.status).to.equal(201);
+          console.log("The comment is written")
         });
 
         test("Response time is less than 200ms", () => {

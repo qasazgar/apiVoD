@@ -31,6 +31,7 @@ runtime:
 
         test("The user subscription shown correctly", () => {
           expect(res.status).to.equal(200);
+          console.log("The user subscription shown correctly");
         });
 
         test("Response time is less than 500ms", () => {

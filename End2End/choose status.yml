@@ -35,10 +35,12 @@ runtime:
 
         test("The status is chosen", () => {
           expect(res.status).to.equal(200);
+          console.log("The status is chosen")
         });
 
         test("Response time is less than 500ms", () => {
           expect(res.responseTime).to.be.below(500);
+          
         });
 
 settings:

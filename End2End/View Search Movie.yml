@@ -39,6 +39,7 @@ runtime:
 
         test("Search is done", () => {
           expect(res.status).to.equal(200);
+          console.log("Search is done");
         });
 
         test("Response time is less than 500ms", () => {
@@ -47,11 +48,14 @@ runtime:
 
         if (jsonData && Array.isArray(jsonData.movies) && jsonData.movies.length > 0) {
           // Take the first item's id
-          const FirstMovie = jsonData.movies[0].id;
+          const SearchedMovie = jsonData.movies[Math.floor(Math.random() * jsonData.movies.length)].id;
+          const type=jsonData.movies[Math.floor(Math.random() * jsonData.movies.length)].type;
 
-          bru.setEnvVar("FirstSearch", FirstMovie);
+          bru.setEnvVar("SearchedMovie", SearchedMovie);
+          bru.setEnvVar("type", type);
 
-          console.log("First ID saved to environment variable Fullaccess:", FirstMovie);
+          console.log("Search id is equal:", SearchedMovie);
+          console.log("type is equal", type)
         } else {
           console.log("Response data missing required fields");
         }

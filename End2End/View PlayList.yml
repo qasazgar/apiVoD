@@ -45,8 +45,9 @@ runtime:
 
         const jsonData = res.getBody();
 
-        test("The playlist is shown", () => {
+        test("The user playlist is shown", () => {
           expect(res.status).to.equal(200);
+          console.log("The user playlist is shown")
         });
 
         test("Response time is less than 500ms", () => {

@@ -27,6 +27,7 @@ runtime:
 
         test("The notification page works correctly", () => {
           expect(res.status).to.equal(200);
+          console.log("The notification page works correctly");
         });
 
         test("Response time is less than 500ms", () => {

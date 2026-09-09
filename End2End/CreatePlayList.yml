@@ -41,12 +41,23 @@ http:
       {
         "playlist_type": "{{playlist_type}}",
         "custom_name": "{{custom_name}}",
-        "movie": "{{movie}}"
+        "movie": "{{SearchedMovie}}"
       }
   auth: inherit
 
 runtime:
   scripts:
+    - type: before-request
+      code: |-
+        const customNames = [
+          "newMovie",
+          "favouritMovie",
+          "goodMovie"
+        ];
+
+        const randomCustomName = customNames[Math.floor(Math.random() * customNames.length)];
+
+        bru.setVar("custom_name", randomCustomName);
     - type: after-response
       code: |-
         const responseTime = res.getResponseTime();
@@ -57,6 +68,7 @@ runtime:
 
         test("The playlist is created", () => {
           expect(res.status).to.equal(200);
+          console.log("The playlist is created")
         });
 
         test("Response time is less than 500ms", () => {

@@ -47,6 +47,7 @@ runtime:
 
         test("The profile is shown", () => {
           expect(res.status).to.equal(200);
+          console.log("The profile is shown");
         });
 
         test("Response time is less than 500ms", () => {

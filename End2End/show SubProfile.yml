@@ -47,6 +47,7 @@ runtime:
 
         test("Sub profile list successfully shown", () => {
           expect(res.status).to.equal(200);
+          console.log("Sub profile list successfully shown");
         });
 
         test("Response time is less than 500ms", () => {

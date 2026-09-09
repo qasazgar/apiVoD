@@ -51,6 +51,7 @@ runtime:
 
         test("The playlist is deleted", () => {
           expect(res.status).to.equal(204);
+          console.log("The playlist is deleted")
         });
 
         test("Response time is less than 500ms", () => {

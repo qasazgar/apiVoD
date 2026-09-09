@@ -54,6 +54,7 @@ runtime:
 
         test("The user logged out", () => {
           expect(res.status).to.equal(200);
+          console.log("The user logged out")
         });
 
         test("Response time is less than 500ms", () => {
