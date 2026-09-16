@@ -12,6 +12,10 @@ pipeline {
         stage('Check Environment') {
             steps {
                 sh '''
+                    echo "======================================"
+                    echo " Environment Check"
+                    echo "======================================"
+
                     node --version
                     npm --version
                     bru --version
@@ -22,15 +26,20 @@ pipeline {
         stage('Prepare Reports') {
             steps {
                 sh '''
+                    rm -rf reports
                     mkdir -p reports
                 '''
             }
         }
 
-        stage('Run Bruno') {
+        stage('Run Bruno End2End') {
             steps {
                 sh '''
-                    bru run . \
+                    echo "======================================"
+                    echo " Running End2End Tests"
+                    echo "======================================"
+
+                    bru run "End2End" \
                         --env VOD-stage \
                         --reporter-junit reports/junit.xml \
                         --reporter-html reports/report.html
@@ -39,7 +48,7 @@ pipeline {
         }
     }
 
-post {
+    post {
 
         always {
 
@@ -49,7 +58,7 @@ post {
 
             junit(
                 allowEmptyResults: true,
-                testResults: 'reports/*-junit.xml'
+                testResults: 'reports/junit.xml'
             )
 
             archiveArtifacts(
