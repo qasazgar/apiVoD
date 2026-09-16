@@ -1,7 +1,7 @@
 info:
   name: PlayList after delete
   type: http
-  seq: 18
+  seq: 17
 
 http:
   method: get

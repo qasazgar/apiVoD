@@ -1,7 +1,7 @@
 info:
   name: Logout
   type: http
-  seq: 19
+  seq: 18
 
 http:
   method: post

@@ -1,7 +1,7 @@
 info:
   name: View PlayList
   type: http
-  seq: 14
+  seq: 13
 
 http:
   method: get

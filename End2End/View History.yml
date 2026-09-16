@@ -1,7 +1,7 @@
 info:
   name: View History
   type: http
-  seq: 13
+  seq: 12
 
 http:
   method: get
