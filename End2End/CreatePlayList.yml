@@ -67,7 +67,7 @@ runtime:
         const jsonData = res.getBody();
 
         test("The playlist is created", () => {
-          expect(res.status).to.equal(200);
+          expect(res.status).to.equal(201);
           console.log("The playlist is created")
         });
 
