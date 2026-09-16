@@ -37,6 +37,25 @@ http:
       value: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
   auth: inherit
 
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        const responseTime = res.getResponseTime();
+
+
+
+        const jsonData = res.getBody();
+
+        test("Sub profile list successfully shown", () => {
+          expect(res.status).to.equal(200);
+          console.log("Sub profile list successfully shown");
+        });
+
+        test("Response time is less than 500ms", () => {
+          expect(res.responseTime).to.be.below(500);
+        });
+
 settings:
   encodeUrl: true
   timeout: 0
