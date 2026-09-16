@@ -49,7 +49,7 @@ runtime:
 
         test("Sub profile list successfully shown", () => {
           expect(res.status).to.equal(200);
-          console.log("choose profile selected");
+          console.log("profile selected");
         });
 
         test("Response time is less than 500ms", () => {
