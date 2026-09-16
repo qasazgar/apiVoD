@@ -39,15 +39,41 @@ pipeline {
         }
     }
 
-    post {
+post {
 
         always {
 
-            junit 'reports/junit.xml'
+            echo "======================================"
+            echo " Publishing Test Results"
+            echo "======================================"
 
-            archiveArtifacts artifacts: 'reports/report.html',
-                             allowEmptyArchive: true
+            junit(
+                allowEmptyResults: true,
+                testResults: 'reports/*-junit.xml'
+            )
 
+            archiveArtifacts(
+                artifacts: 'reports/*.html',
+                allowEmptyArchive: true
+            )
+
+            echo "======================================"
+            echo " All Reports Published"
+            echo "======================================"
+        }
+
+        success {
+
+            echo "======================================"
+            echo " ALL TESTS PASSED"
+            echo "======================================"
+        }
+
+        failure {
+
+            echo "======================================"
+            echo " SOME TESTS FAILED"
+            echo "======================================"
         }
     }
 }
