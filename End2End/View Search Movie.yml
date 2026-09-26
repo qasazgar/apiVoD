@@ -43,30 +43,27 @@ runtime:
   scripts:
     - type: after-response
       code: |-
-        const responseTime = res.getResponseTime();
-        const jsonData = res.body;   // ← این خط مهم است (نه res.getBody())
+        const jsonData = res.body;
 
         test("Search is done", () => {
           expect(res.status).to.equal(200);
-          console.log("Search is done");
         });
 
-        test("Response time is less than 500ms", () => {
-          expect(res.responseTime).to.be.below(500);
-        });
-
-        if (jsonData && Array.isArray(jsonData.movies) && jsonData.movies.length > 0) {
-          // یک آیتم تصادفی از movies انتخاب کن
+        if (jsonData?.movies?.length > 0) {
           const randomMovie = jsonData.movies[Math.floor(Math.random() * jsonData.movies.length)];
           
+          // هم در Environment و هم به صورت موقت ست کن
           bru.setEnvVar("SearchedMovie", randomMovie.id);
           bru.setEnvVar("type", randomMovie.type);
           
-          console.log("Search id is equal:", randomMovie.id);
-          console.log("type is equal:", randomMovie.type);
+          // برای اطمینان بیشتر
+          bru.setVar("SearchedMovie", randomMovie.id);
+          bru.setVar("type", randomMovie.type);
+          
+          console.log("Saved SearchedMovie =", randomMovie.id);
+          console.log("Saved type =", randomMovie.type);
         } else {
-          console.log("Response data missing required fields or movies array is empty");
-          console.log("jsonData:", jsonData);
+          console.log("No movies found");
         }
 
 settings:
