@@ -1,7 +1,7 @@
 info:
   name: View Recent Search
   type: http
-  seq: 11
+  seq: 12
 
 http:
   method: get

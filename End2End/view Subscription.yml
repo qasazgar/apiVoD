@@ -1,11 +1,11 @@
 info:
   name: view Subscription
   type: http
-  seq: 4
+  seq: 5
 
 http:
   method: get
-  url: "{{Stage_VOD}}/api/v1/panel/subscription/?page=1"
+  url: "{{Stage_VOD}}/api/v1/panel/subscription/"
   headers:
     - name: accept
       value: application/json
@@ -17,6 +17,7 @@ http:
     - name: page
       value: "1"
       type: query
+      disabled: true
   auth: inherit
 
 runtime:

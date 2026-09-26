@@ -1,7 +1,7 @@
 info:
   name: view comment List
   type: http
-  seq: 9
+  seq: 10
 
 http:
   method: get

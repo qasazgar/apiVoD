@@ -1,7 +1,7 @@
 info:
   name: PlayMovie
   type: http
-  seq: 8
+  seq: 9
 
 http:
   method: post
