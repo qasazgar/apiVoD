@@ -51,7 +51,7 @@ http:
 runtime:
   variables:
     - name: SearchedMovie
-      value: "26"
+      value: ""
   scripts:
     - type: after-response
       code: |-

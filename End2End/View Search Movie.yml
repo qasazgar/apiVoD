@@ -44,10 +44,7 @@ runtime:
     - type: after-response
       code: |-
         const responseTime = res.getResponseTime();
-
-
-
-        const jsonData = res.getBody();
+        const jsonData = res.body;   // ← این خط مهم است (نه res.getBody())
 
         test("Search is done", () => {
           expect(res.status).to.equal(200);
@@ -59,17 +56,17 @@ runtime:
         });
 
         if (jsonData && Array.isArray(jsonData.movies) && jsonData.movies.length > 0) {
-          // Take the first item's id
-          const SearchedMovie = jsonData.movies[Math.floor(Math.random() * jsonData.movies.length)].id;
-          const type=jsonData.movies[Math.floor(Math.random() * jsonData.movies.length)].type;
-
-          bru.setEnvVar("SearchedMovie", SearchedMovie);
-          bru.setEnvVar("type", type);
-
-          console.log("Search id is equal:", SearchedMovie);
-          console.log("type is equal", type)
+          // یک آیتم تصادفی از movies انتخاب کن
+          const randomMovie = jsonData.movies[Math.floor(Math.random() * jsonData.movies.length)];
+          
+          bru.setEnvVar("SearchedMovie", randomMovie.id);
+          bru.setEnvVar("type", randomMovie.type);
+          
+          console.log("Search id is equal:", randomMovie.id);
+          console.log("type is equal:", randomMovie.type);
         } else {
-          console.log("Response data missing required fields");
+          console.log("Response data missing required fields or movies array is empty");
+          console.log("jsonData:", jsonData);
         }
 
 settings:
