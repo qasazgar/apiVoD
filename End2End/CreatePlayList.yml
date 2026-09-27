@@ -52,7 +52,12 @@ runtime:
         const customNames = [
           "newMovie",
           "favouritMovie",
-          "goodMovie"
+          "goodMovie",
+          "فیلم های جدید",
+          "فیلم زیبا", 
+          "فیلم 123",
+          "12",
+          "15"
         ];
 
         const randomCustomName = customNames[Math.floor(Math.random() * customNames.length)];

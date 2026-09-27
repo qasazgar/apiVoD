@@ -49,6 +49,10 @@ runtime:
           expect(res.status).to.equal(200);
         });
 
+        test("Response time is less than 500ms", () => {
+          expect(res.responseTime).to.be.below(500);
+        });
+
         if (jsonData?.movies?.length > 0) {
           const randomMovie = jsonData.movies[Math.floor(Math.random() * jsonData.movies.length)];
           
